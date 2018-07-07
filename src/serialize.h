@@ -698,12 +698,12 @@ class CDataStream
 protected:
     typedef vector<char, secure_allocator<char> > vector_type;
     vector_type vch;
-    unsigned int nReadPos;
-    short state;
-    short exceptmask;
+    unsigned int nReadPos;//nReadPos是vch读取数据的起始位置
+    short state;          //state是错误标识。该变量用于指示在序列化/反序列化当中可能出现的错误。
+    short exceptmask;     //exceptmask是错误掩码。它初始化为ios::badbit | ios::failbit。与state类似，它被用于指示错误种类。
 public:
-    int nType;
-    int nVersion;
+    int nType;            //取值为 SER_NETWORK，SER_DISK 等
+    int nVersion;         //版本号
 
     typedef vector_type::allocator_type   allocator_type;
     typedef vector_type::size_type        size_type;
@@ -890,6 +890,7 @@ public:
     void ReadVersion()           { *this >> nVersion; }
     void WriteVersion()          { *this << nVersion; }
 
+    //从vch中读取 nSize个字节到pch中
     CDataStream& read(char* pch, int nSize)
     {
         // Read from the beginning of the buffer
@@ -897,6 +898,7 @@ public:
         unsigned int nReadPosNext = nReadPos + nSize;
         if (nReadPosNext >= vch.size())
         {
+            //如果要读取得超过了缓冲区的大小
             if (nReadPosNext > vch.size())
             {
                 setstate(ios::failbit, "CDataStream::read() : end of data");
@@ -905,9 +907,12 @@ public:
             }
             memcpy(pch, &vch[nReadPos], nSize);
             nReadPos = 0;
+            //当一段数据被从流中读取之后，该段数据无法被再次读取；2）nReadPos是第一个有效数据的读取位置。
+            //读完的话就清空了
             vch.clear();
             return (*this);
         }
+        //没有读完 只是把nReadPos设置到下一个要读取的位置
         memcpy(pch, &vch[nReadPos], nSize);
         nReadPos = nReadPosNext;
         return (*this);
@@ -933,6 +938,8 @@ public:
         return (*this);
     }
 
+    //它将由pch指向的nSize个字符附加到vch的结尾。
+    //无论reade还是 write都是 以CDataStream为主来说的。读就是从buffer读数据出来。 写就是写到buffer里
     CDataStream& write(const char* pch, int nSize)
     {
         // Write to the end of the buffer
@@ -941,6 +948,7 @@ public:
         return (*this);
     }
 
+    //序列化 就是指把对象 序列化（to buffer）
     template<typename Stream>
     void Serialize(Stream& s, int nType=0, int nVersion=VERSION) const
     {

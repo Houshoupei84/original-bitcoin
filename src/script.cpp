@@ -41,6 +41,15 @@ void MakeSameSize(valtype& vch1, valtype& vch2)
 #define stacktop(i)  (stack.at(stack.size()+(i)))
 #define altstacktop(i)  (altstack.at(altstack.size()+(i)))
 
+/*
+ *
+ * 第一个参数为txin.scriptSig + CScript(OP_CODESEPARATOR) + txout.scriptPubKey。它有可能是：
+        验证情形A：<你的签名_vchSig> <你的公钥_vchPubKey> OP_CODESEPARATOR OP_DUP OP_HASH160
+                    <你的地址160位哈希> OP_EQUALVERIFY OP_CHECKSIG，即签名A + OP_CODESEPARATOR + 脚本A。
+        验证情形B：<你的签名_vchSig> OP_CODESEPARATOR <你的公钥_vchPubKey> OP_CHECKSIG，即签名B + OP_CODESEPARATOR + 脚本B。
+第二个参数为新创建的交易txTo，即CreateTransaction()中的wtxNew。
+第三个参数为nIn，即将被验证的交易在txTo输入交易列表中的位置。
+ * */
 bool EvalScript(const CScript& script, const CTransaction& txTo, unsigned int nIn, int nHashType,
                 vector<vector<unsigned char> >* pvStackRet)
 {
@@ -813,7 +822,21 @@ bool EvalScript(const CScript& script, const CTransaction& txTo, unsigned int nI
 
 
 
+/*
+ * 参数：
+ * 1, scriptCode 脚本A：OP_DUP OP_HASH160 <你地址的160位哈希> OP_EQUALVERIFY OP_CECKSIG。该脚本将来源交易txFrom中的币发送给你，
+ *                  其中<你地址的160位哈希>是你的比特币地址。
+                 脚本B：<你的公钥> OP_CHECKSIG。该脚本将剩余的币退还至来源交易txFrom的发起人。由于你创建的新交易txTo/wtxNew将会花费来自txFrom的币
+                    你必须同时也是txFrom的创建者。换句话讲，当你在创建txFrom的时候，你其实是在花费之前别人发送给你的币。因此，<你的公钥>即是txFrom创建者的公钥
+                    ，也是你自己的公钥。
+   2， txTo 目标交易也是这次要生成的交易
+   3， nIn  为txTo中的vin的下标索引
+   4， nHashType 这里默认参数为 SIGHASH_ALL
 
+ 函数功能：   1，清空除了目标交易之外的所有输入交易。
+             2，复制来源交易中被目标交易作为输入交易引用的那笔输出交易的脚本至目标交易的输入交易列表中。
+             3，为修改后的交易生成哈希值。
+ * */
 
 uint256 SignatureHash(CScript scriptCode, const CTransaction& txTo, unsigned int nIn, int nHashType)
 {
@@ -917,6 +940,7 @@ bool Solver(const CScript& scriptPubKey, vector<pair<opcodetype, valtype> >& vSo
     if (vTemplates.empty())
     {
         // Standard tx, sender provides pubkey, receiver adds signature
+        //发送者提供公钥， 接受者提供签名
         vTemplates.push_back(CScript() << OP_PUBKEY << OP_CHECKSIG);
 
         // Short account number tx, sender provides hash of pubkey, receiver provides signature and pubkey
@@ -985,36 +1009,43 @@ bool Solver(const CScript& scriptPubKey, uint256 hash, int nHashType, CScript& s
     {
         foreach(PAIRTYPE(opcodetype, valtype)& item, vSolution)
         {
-            if (item.first == OP_PUBKEY)
+            if (item.first == OP_PUBKEY)//脚本B
             {
                 // Sign
-                const valtype& vchPubKey = item.second;
+                const valtype& vchPubKey = item.second;//这里为公钥
+                //检查私钥是否在
                 if (!mapKeys.count(vchPubKey))
                     return false;
                 if (hash != 0)
                 {
                     vector<unsigned char> vchSig;
+                    //为hash 生成签名
                     if (!CKey::Sign(mapKeys[vchPubKey], hash, vchSig))
                         return false;
                     vchSig.push_back((unsigned char)nHashType);
+                    //签名写入scriptSigRet
                     scriptSigRet << vchSig;
                 }
             }
-            else if (item.first == OP_PUBKEYHASH)
+            else if (item.first == OP_PUBKEYHASH)//脚本A
             {
                 // Sign and give pubkey
+                //<你的地址160位哈希>
+                //mapPubKeys中找到其所对应的公钥。
                 map<uint160, valtype>::iterator mi = mapPubKeys.find(uint160(item.second));
                 if (mi == mapPubKeys.end())
                     return false;
-                const vector<unsigned char>& vchPubKey = (*mi).second;
+                const vector<unsigned char>& vchPubKey = (*mi).second;//获得公钥
                 if (!mapKeys.count(vchPubKey))
                     return false;
                 if (hash != 0)
                 {
                     vector<unsigned char> vchSig;
+                    // //为hash 生成签名
                     if (!CKey::Sign(mapKeys[vchPubKey], hash, vchSig))
                         return false;
                     vchSig.push_back((unsigned char)nHashType);
+                    //签名写入scriptSigRet
                     scriptSigRet << vchSig << vchPubKey;
                 }
             }
@@ -1086,18 +1117,30 @@ bool ExtractHash160(const CScript& scriptPubKey, uint160& hash160Ret)
     return false;
 }
 
-
+/*
+ * 1, txFrom是一个*pcoin对象。它是CreateTransaction()里setCoins中的所有币中的某一个。它同时也是一笔来源交易。
+ *    它的若干输出交易当中包含了新交易将要花费的币。(被选中的，要花掉的钱)
+ * 2,txTo是CreateTransaction()里的wtxNew对象。它是将要花费来源交易txFrom的新交易。新交易需要被签署方可生效。
+ * 3,nIn是指向txTo中输入交易列表的索引位置。该输入交易列表包含一个对txFrom的输出交易列表的引用。更准确地讲，txin=txTo.vin[nIn]（第4行）
+ *   是txTo中的输入交易；txout=txFrom.vout[txin.prev.out.n]（第6行）是txin所指向的txFrom中的输出交易。
+ *   函数功能：调用SignatureHash()方法生成txTo的哈希值。调用Solver()函数签署刚才生成的哈希。调用EvalScript()来运行一小段脚本并检查签名是否合法。
+ *
+ **/
 bool SignSignature(const CTransaction& txFrom, CTransaction& txTo, unsigned int nIn, int nHashType, CScript scriptPrereq)
 {
     assert(nIn < txTo.vin.size());
-    CTxIn& txin = txTo.vin[nIn];
+    CTxIn& txin = txTo.vin[nIn];//钱到这里去
+
     assert(txin.prevout.n < txFrom.vout.size());
-    const CTxOut& txout = txFrom.vout[txin.prevout.n];
+    const CTxOut& txout = txFrom.vout[txin.prevout.n];//钱从这里来
 
     // Leave out the signature from the hash, since a signature can't sign itself.
     // The checksig op will also drop the signatures from its hash.
+    //传入的事脚本
     uint256 hash = SignatureHash(scriptPrereq + txout.scriptPubKey, txTo, nIn, nHashType);
 
+    //txin.scriptSig 注意这里txin 也就是txTo.vin[nIn].scriptSig  这个函数里得到了签名
+    //为hash生成签名
     if (!Solver(txout.scriptPubKey, hash, nHashType, txin.scriptSig))
         return false;
 

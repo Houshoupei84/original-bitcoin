@@ -1,0 +1,3 @@
+/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/CMakeFiles/original_bitcoin.dir

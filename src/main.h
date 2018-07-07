@@ -80,8 +80,11 @@ bool SendMoney(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew);
 class CDiskTxPos
 {
 public:
+    //区块数据文件的序号
     unsigned int nFile;
+    //区块在区块数据文件当中的位置
     unsigned int nBlockPos;
+    //交易在区块数据中的位置
     unsigned int nTxPos;
 
     CDiskTxPos()
@@ -143,7 +146,13 @@ public:
 
 
 
-
+/*
+ * 任何交易均由一个256位uint256哈希作为其唯一识别。若要引用某一笔来源交易TxSource当中某个特定的输出交易，我们需要两种信息：
+ * TxSource的哈希，和该输出交易在输出交易当中的位置n。这两种信息构成COutPoint类。
+ * 一个COutPoint对象指向来源交易的某一笔输出交易TxSource.vout[n]
+ * 。如果该笔输出交易被另外一笔交易Tx的位置i的输入交易所引用，例如Tx.vin[i].prevout，
+ * 我们将其称为Tx的第i笔输入交易花费了TxSource中的第n笔输出交易
+ * */
 class COutPoint
 {
 public:
@@ -193,7 +202,7 @@ public:
 class CTxIn
 {
 public:
-    COutPoint prevout;
+    COutPoint prevout;//CTransaction vectior vout的下标
     CScript scriptSig;
     unsigned int nSequence;
 
@@ -598,9 +607,12 @@ public:
 class CMerkleTx : public CTransaction
 {
 public:
+    //该交易所在CBlock的哈希
     uint256 hashBlock;
+
+    //vMerkleBranch 和 nIndex 可以用于查找该CTransaction实例是否被包含在这个CBlock里面
     vector<uint256> vMerkleBranch;
-    int nIndex;
+    int nIndex;// block 里面 vector vtx的下表（索引）
 
     // memory only
     mutable bool fMerkleVerified;
@@ -738,7 +750,10 @@ public:
 class CTxIndex
 {
 public:
+
+    //包含有一笔交易和花费这笔交易输出的交易在磁盘的位置
     CDiskTxPos pos;
+    //包含所有由CDiskTxPos pos指向的某笔交易作为来源交易的交易的位置
     vector<CDiskTxPos> vSpent;
 
     CTxIndex()
@@ -807,17 +822,26 @@ class CBlock
 public:
     // header
     int nVersion;
+    /*
+     * uint256 hashPrevBlock是当前区块之前的区块哈希，被包括在块头当中。因此，一个区块的哈希与它在区块链当中先前区块的哈希有关。
+     * */
     uint256 hashPrevBlock;
+    /*
+     * 成员变量uint256 hashMerkleRoot是块头的一部分。它由成员函数BuildMerkleTree()生成，
+     * 该函数将所有交易vtx作为输入参数，并最终生成一个256位哈希hashMerkleRoot。
+     * */
     uint256 hashMerkleRoot;
     unsigned int nTime;
     unsigned int nBits;
     unsigned int nNonce;
 
     // network and disk
+	////一个区块包含若干笔交易
     vector<CTransaction> vtx;
 
     // memory only
-    mutable vector<uint256> vMerkleTree;
+    //梅克尔树  该树被扁平化放置
+	mutable vector<uint256> vMerkleTree;
 
 
     CBlock()
@@ -859,6 +883,10 @@ public:
         return (nBits == 0);
     }
 
+    /*
+     * 一个区块的哈希，由函数GetHash()生成，是通过计算区块的块头（block-header）而不是整个区块数据所得到
+     * 。更具体讲，哈希由成员变量nVersion到nNonce生成，而并不包括交易容器vtx。
+     * */
     uint256 GetHash() const
     {
         return Hash(BEGIN(nVersion), END(nNonce));
@@ -871,6 +899,7 @@ public:
         foreach(const CTransaction& tx, vtx)
             vMerkleTree.push_back(tx.GetHash());
         int j = 0;
+        //
         for (int nSize = vtx.size(); nSize > 1; nSize = (nSize + 1) / 2)
         {
             for (int i = 0; i < nSize; i += 2)
@@ -890,6 +919,9 @@ public:
             BuildMerkleTree();
         vector<uint256> vMerkleBranch;
         int j = 0;
+        /*
+         * 或运算符^1翻转nIndex最后一位，而不修改其他位。这将保证i永远指向nIndex所指向节点的伴随节点，例如节点[B0, B1, B2, ...]。
+         * */
         for (int nSize = vtx.size(); nSize > 1; nSize = (nSize + 1) / 2)
         {
             int i = min(nIndex^1, nSize-1);
@@ -900,6 +932,11 @@ public:
         return vMerkleBranch;
     }
 
+    /*
+     * 这个函数接受它的第一个参数hash，用它检查第二个参数vMerkleBranch，并返回一个生成的梅克尔树根。
+     * 如果所返回的树根与hashMerkleRoot相同，则hash所指向交易的哈希被包括在该CBlock当中。
+     * 第三个参数nIndex是第一个参数在vMerkleTree当中的位置；它与GetMerkleBranch()的唯一参数是相同的。
+     * */
     static uint256 CheckMerkleBranch(uint256 hash, const vector<uint256>& vMerkleBranch, int nIndex)
     {
         if (nIndex == -1)
@@ -1009,11 +1046,17 @@ public:
 class CBlockIndex
 {
 public:
+    //指针phashBlock指向该区块的哈希，可以通过CBlockIndex内嵌的区块头现场计算
     const uint256* phashBlock;
     CBlockIndex* pprev;
     CBlockIndex* pnext;
+    /*
+     * 区块链由区块索引构成。这是一位区块的完整数据被保存在磁盘上的区块数据文件当中，
+     * 而一个区块索引则通过区块的成员变量nFile和nBlockPos引用这个区块。
+     * */
     unsigned int nFile;
     unsigned int nBlockPos;
+    //nHeight是该区块在区块链中的高度。区块链由高度为0的区块开始，即创世区块。紧接着的区块高度为1，以此类推
     int nHeight;
 
     // block header
@@ -1130,9 +1173,12 @@ public:
 //
 // Used to marshal pointers into hashes for db storage.
 //
+//CBlockIndex实例仅保存在内存当中。若要将区块索引存入磁盘，
+// 衍生类CDiskBlockIndex在这里定义。
 class CDiskBlockIndex : public CBlockIndex
 {
 public:
+    //区块的哈希。
     uint256 hashPrev;
     uint256 hashNext;
 
@@ -1308,10 +1354,13 @@ public:
 
 
 extern map<uint256, CTransaction> mapTransactions;
+//key 为交易的hash  value为交易
 extern map<uint256, CWalletTx> mapWallet;
 extern vector<pair<uint256, bool> > vWalletUpdated;
 extern CCriticalSection cs_mapWallet;
+//key 公钥， value为私钥
 extern map<vector<unsigned char>, CPrivKey> mapKeys;
+//key为公钥的hash value为公钥
 extern map<uint160, vector<unsigned char> > mapPubKeys;
 extern CCriticalSection cs_mapKeys;
 extern CKey keyUser;

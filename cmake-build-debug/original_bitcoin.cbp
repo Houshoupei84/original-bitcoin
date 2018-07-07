@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="original_bitcoin"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="original_bitcoin">
+				<Option output="/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/original_bitcoin" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/lib/wx/include/osx_cocoa-unicode-3.1"/>
+					<Add directory="/Users/baidu/Documents/blockchain/original-bitcoin/src"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 original_bitcoin"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="original_bitcoin/fast">
+				<Option output="/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/original_bitcoin" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/lib/wx/include/osx_cocoa-unicode-3.1"/>
+					<Add directory="/Users/baidu/Documents/blockchain/original-bitcoin/src"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 original_bitcoin/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/baidu/Documents/blockchain/original-bitcoin/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/README.md">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/bitcoin.exe">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/libeay32.dll">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/license.txt">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/mingwm10.dll">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/readme.txt">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/base58.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/bignum.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/db.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/db.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/headers.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/irc.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/irc.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/key.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/license.txt">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/main.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/main.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/makefile">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/makefile.vc">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/market.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/market.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/net.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/net.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/addressbook16.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/addressbook16mask.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/addressbook20.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/addressbook20mask.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/bitcoin.ico">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/check.ico">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/send16.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/send16mask.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/send16masknoshadow.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/send20.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/rc/send20mask.bmp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/readme.txt">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/script.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/script.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/serialize.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/sha.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/sha.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/ui.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/ui.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/ui.rc">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/uibase.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/uibase.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/uint256.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/uiproject.fbp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/util.cpp">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/src/util.h">
+			<Option target="original_bitcoin"/>
+		</Unit>
+		<Unit filename="/Users/baidu/Documents/blockchain/original-bitcoin/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

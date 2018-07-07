@@ -19,6 +19,12 @@ typedef unsigned long long  uint64;
 inline int Testuint256AdHoc(vector<string> vArg);
 
 
+/*
+ *
+ * 个uint256类包含有一个256位的哈希。它由一个长度为256/32=8的unsigned int数组构成。
+ * 一个相似的数据结构是uint160，该结构的定义可在同一个文件当中找到。
+ * 既然SHA-256的长度为256bit，读者不难推断出uint160的作用是存放RIPEMD-160哈希。
+ * uint256和uint160均由base_uint类继承而来。*/
 
 // We have to keep a separate base class without constructors
 // so the compiler will let us use it in a union

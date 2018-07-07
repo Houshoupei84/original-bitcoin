@@ -194,7 +194,11 @@ inline bool IsValidBitcoinAddress(const string& str)
 
 
 
-
+/*
+ * 该公钥为未压缩的格式，属于OpenSSL标准格式之一。在得到公钥之后，
+ * 比特币客户端会将该公钥传递至PubKeyToAddress()并调用Hash160ToAddress()方法生成地址。
+ * 最后返回的Base58编码字符串值便是一个新生成的比特币地址。Base58由1-9和除i，l，0，o之外的英文字符组成。
+ * */
 inline string PubKeyToAddress(const vector<unsigned char>& vchPubKey)
 {
     return Hash160ToAddress(Hash160(vchPubKey));

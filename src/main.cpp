@@ -19,12 +19,13 @@ map<uint256, CTransaction> mapTransactions;
 CCriticalSection cs_mapTransactions;
 unsigned int nTransactionsUpdated = 0;
 map<COutPoint, CInPoint> mapNextTx;
-
+//key 为Block hash
 map<uint256, CBlockIndex*> mapBlockIndex;
 const uint256 hashGenesisBlock("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f");
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 uint256 hashBestChain = 0;
+
 CBlockIndex* pindexBest = NULL;
 
 map<uint256, CBlock*> mapOrphanBlocks;
@@ -1383,6 +1384,7 @@ FILE* OpenBlockFile(unsigned int nFile, unsigned int nBlockPos, const char* pszM
     FILE* file = fopen(strprintf("%s\\blk%04d.dat", GetAppDir().c_str(), nFile).c_str(), pszMode);
     if (!file)
         return NULL;
+    //将file的偏移指向最后
     if (nBlockPos != 0 && !strchr(pszMode, 'a') && !strchr(pszMode, 'w'))
     {
         if (fseek(file, nBlockPos, SEEK_SET) != 0)
@@ -1401,12 +1403,17 @@ FILE* AppendBlockFile(unsigned int& nFileRet)
     nFileRet = 0;
     loop
     {
+    	/*
+    	 *a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先的内容会被保留（EOF符保留)。
+    	 *  在操作二进制文件时如果没有指定 'b' 标记，可能会碰到一些奇怪的问题，包括坏掉的图片文件以及关于 \r\n 字符的奇怪问题。
+    	 * */
         FILE* file = OpenBlockFile(nCurrentBlockFile, 0, "ab");
         if (!file)
             return NULL;
         if (fseek(file, 0, SEEK_END) != 0)
             return NULL;
         // FAT32 filesize max 4GB, fseek and ftell max 2GB, so we must stay under 2GB
+        //filesize 不让超过2GB 否则fseek 和ftell 不能超过2GB
         if (ftell(file) < 0x7F000000 - MAX_SIZE)
         {
             nFileRet = nCurrentBlockFile;
@@ -2509,7 +2516,14 @@ bool SelectCoins(int64 nTargetValue, set<CWalletTx*>& setCoinsRet)
 }
 
 
+/*
+ * 调用该方法时，它所需要的四个参数如下：
 
+    scriptPubKey包含脚本代码OP_DUP OP_HASH160 <收款人地址160位哈希> OP_EQUALVERIFY OP_CHECKSIG。
+    nValue是将要转账的数额，交易费nTransactionFee并未包括在内。
+    wtxNew是一个新的Tx实例。
+    nFeeRequiredRet是一笔用来支付交易费的输出交易，在该方法执行完成之后获得。
+ * */
 
 bool CreateTransaction(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew, int64& nFeeRequiredRet)
 {
@@ -2527,11 +2541,15 @@ bool CreateTransaction(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew, in
                 wtxNew.vout.clear();
                 if (nValue < 0)
                     return false;
+                //nValueOut = nValue来保存将转账的金额
                 int64 nValueOut = nValue;
+                //将nValue与交易费nFee相加得到新的包含转账费的nValue。
                 nValue += nFee;
 
                 // Choose coins to use
                 set<CWalletTx*> setCoins;
+                //执行位于第21行的SelectCoins(nValue, setCoins)得到一系列币，并放入setCoins。
+                // setCoins包含支付给你本人地址的交易，即你所拥有的币。这些交易将成为wtxNew的来源交易
                 if (!SelectCoins(nValue, setCoins))
                     return false;
                 int64 nValueIn = 0;
@@ -2539,12 +2557,18 @@ bool CreateTransaction(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew, in
                     nValueIn += pcoin->GetCredit();
 
                 // Fill vout[0] to the payee
+                //并添加一笔输出交易至wtxNew。该笔输出将支付给<收款人地址160位哈希>（包含在scriptPubKey里面）数量为的币。
                 wtxNew.vout.push_back(CTxOut(nValueOut, scriptPubKey));
 
-                // Fill vout[1] back to self with any change
+                // Fill vout[1] back to self with any change 添加另一笔输出交易至wtxNew并将零钱发回本人
                 if (nValueIn > nValue)
                 {
                     // Use the same key as one of the coins
+
+                    //从setCoin当中获取第一笔交易txFirst，依次检查txFirst.vout中的交易是否属于本人。如果是则从该笔输出交易当中提取出公钥，
+					// 并放入本地变量vchPubKey
+                    //将vchPubKey放入脚本vchPubKey OP_CHECKSIG，并使用这段脚本代码为wtxNew添加一个支付给本人的输出交易（第45行）。
+                    //因为setCoins包含支付给本人的交易，所以每笔交易一定包括至少一笔支付给本人的交易。从第一笔交易txFirst中即可找到。
                     vector<unsigned char> vchPubKey;
                     CTransaction& txFirst = *(*setCoins.begin());
                     foreach(const CTxOut& txout, txFirst.vout)
@@ -2561,6 +2585,8 @@ bool CreateTransaction(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew, in
                 }
 
                 // Fill vin
+				//遍历setCoins 对于每一个CWalletTx它的每一个vout只要是我的 都把这个原来的输出 换成wtxNew的输入填写。
+				//这里可以理解交易的vin
                 foreach(CWalletTx* pcoin, setCoins)
                     for (int nOut = 0; nOut < pcoin->vout.size(); nOut++)
                         if (pcoin->vout[nOut].IsMine())
@@ -2568,12 +2594,18 @@ bool CreateTransaction(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew, in
 
                 // Sign
                 int nIn = 0;
+                //对于setCoins当中的每笔交易pcoin，逐个遍历其所有输出交易pcoin->vout[nOut]
+                // 。如果该笔交易属于本人，调用SignSignature(*pcoin,wtxNew, nIn++)为第nIn笔输入交易添加签名
+                // 。注意nIn为wtxNew的输入交易位置。
                 foreach(CWalletTx* pcoin, setCoins)
                     for (int nOut = 0; nOut < pcoin->vout.size(); nOut++)
                         if (pcoin->vout[nOut].IsMine())
                             SignSignature(*pcoin, wtxNew, nIn++);
 
                 // Check that enough fee is included
+                //如果交易费nFee小于wtxNet.GetMinFee(true)，将nFee设为后者，
+                // 清空wtxNew中的所有数据并重新开始整个过程。在位于第11行的第一次迭代当中
+                // ，nFee是全局变量nTransactionFee = 0的本地复制。
                 if (nFee < wtxNew.GetMinFee(true))
                 {
                     nFee = nFeeRequiredRet = wtxNew.GetMinFee(true);
@@ -2621,7 +2653,18 @@ bool CommitTransactionSpent(const CWalletTx& wtxNew)
 
 
 
+/*
+ * scriptPubKey包含脚本代码OP_DUP OP_HASH160 <收款人地址160位哈希> OP_EQUALVERIFY OP_CHECKSIG。
+    nValue表示将要转账的金额。该金额并未包含交易费nTrasactionFee。
+    wtxNew是一个CWalletTx类的本地变量。该变量目前的值为空，之后会包含若干CMerkleTX类对象。
+    该类由CTransaction衍生而来，并且添加了若干方法。我们暂时先不管具体细节，仅将其看作CTransaction类。
 
+
+    该方法的流程显而易见：
+    首先建立一笔新的交易（CreateTransaction(scriptPubKey, nValue, wtxNet, nFeeRequired)，第6行）。
+    尝试将这笔交易提交至数据库（CommitTransactionSpent(wtxNet)，第16行）。
+    如果该笔交易提交成功（wtxNew.AcceptTransaction()，第23行），将其广播至其他peer节点（wtxNew.RelayWalletTransaction()，第30行）。
+ * */
 bool SendMoney(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew)
 {
     CRITICAL_BLOCK(cs_main)

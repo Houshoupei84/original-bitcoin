@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="original_bitcoin" targetName="original_bitcoin" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1e9eca45-0d37-46e2-b98a-886a2ee3ca28" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/base58.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/base58.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/script.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serialize.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/serialize.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uint256.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/uint256.h" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="945">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serialize.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/serialize.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15735">
+              <caret line="1049" column="15" selection-start-line="1049" selection-start-column="6" selection-end-line="1049" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sha.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sha.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2280">
+              <caret line="152" selection-start-line="152" selection-end-line="152" />
+              <folding>
+                <element signature="e#4262#4826#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1185">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uibase.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/uibase.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4785">
+              <caret line="319" selection-start-line="319" selection-end-line="319" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/util.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="net.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10725">
+              <caret line="715" column="80" selection-start-line="715" selection-start-column="68" selection-end-line="715" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="net.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7110">
+              <caret line="474" column="22" selection-start-line="474" selection-start-column="22" selection-end-line="474" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/script.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/script.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8835">
+              <caret line="589" column="5" selection-start-line="589" selection-start-column="5" selection-end-line="589" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>GenerateNewKey</find>
+      <find>SendMoney</find>
+      <find>nValueOut</find>
+      <find>vch</find>
+      <find>enum</find>
+      <find>CDataStream</find>
+      <find>ReadFromDisk</find>
+      <find>CTransaction</find>
+      <find>AddToWallet</find>
+      <find>wtxIn</find>
+      <find>mapWallet</find>
+      <find>BOOST_FOREACH</find>
+      <find>CSendDialog::OnButtonSend</find>
+      <find>SignatureHash</find>
+      <find>Solver</find>
+      <find>CreateTransaction</find>
+      <find>EvalScript</find>
+      <find>WriteToDisk</find>
+      <find>OpenBlockFile</find>
+      <find>CBlockIndex</find>
+      <find>phashBlock</find>
+      <find>CBlock</find>
+      <find>CMerkleTx</find>
+      <find>CWalletTx</find>
+      <find>mapBlockIndex</find>
+      <find>CWalletTx::</find>
+      <find>CTxIndex</find>
+      <find>CDiskTxPos</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/base58.h" />
+        <option value="$PROJECT_DIR$/src/uint256.h" />
+        <option value="$PROJECT_DIR$/src/serialize.h" />
+        <option value="$PROJECT_DIR$/src/script.cpp" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/src/main.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/readme.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="846" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="original_bitcoin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="original-bitcoin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="original_bitcoin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="original-bitcoin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="original_bitcoin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.original_bitcoin">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="original_bitcoin" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="original_bitcoin" TARGET_NAME="original_bitcoin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="original_bitcoin" RUN_TARGET_NAME="original_bitcoin" />
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.original_bitcoin" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1e9eca45-0d37-46e2-b98a-886a2ee3ca28" name="Default" comment="" />
+      <created>1529906321474</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1529906321474</updated>
+      <workItem from="1529906322798" duration="14140000" />
+      <workItem from="1529929800302" duration="12805000" />
+      <workItem from="1530016420707" duration="3532000" />
+      <workItem from="1530063574838" duration="3543000" />
+      <workItem from="1530080854150" duration="14031000" />
+      <workItem from="1530202669235" duration="1000" />
+      <workItem from="1530203287041" duration="8349000" />
+      <workItem from="1530322865055" duration="112000" />
+      <workItem from="1530857561372" duration="136000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="56649000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="846" extended-state="1" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18322763" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="CMake" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.35914552" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.35380507" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/script.cpp</url>
+          <line>1022</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/main.cpp</url>
+          <line>584</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/uint256.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="27" lean-forward="true" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="24" />
+          <folding>
+            <element signature="e#187#207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="76" selection-start-line="76" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14100">
+          <caret line="940" column="27" selection-start-line="940" selection-start-column="27" selection-end-line="940" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sha.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/license.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5070">
+          <caret line="338" column="15" selection-start-line="338" selection-start-column="15" selection-end-line="338" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base58.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2790">
+          <caret line="186" column="42" lean-forward="true" selection-start-line="186" selection-start-column="42" selection-end-line="186" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serialize.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9510">
+          <caret line="634" column="31" lean-forward="true" selection-start-line="634" selection-start-column="31" selection-end-line="634" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/makefile.vc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-335">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sha.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui.rc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uibase.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="59" selection-start-line="59" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uint256.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uiproject.fbp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172140">
+          <caret line="11476" selection-start-line="11476" selection-end-line="11477" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5670">
+          <caret line="378" column="1" selection-start-line="378" selection-start-column="1" selection-end-line="378" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18360">
+          <caret line="1224" column="19" selection-start-line="1224" selection-start-column="19" selection-end-line="1224" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="537" column="25" selection-start-line="537" selection-start-column="16" selection-end-line="537" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/license.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20040">
+          <caret line="1336" column="5" selection-start-line="1336" selection-start-column="5" selection-end-line="1336" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/stdio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2280">
+          <caret line="152" column="14" selection-start-line="152" selection-start-column="9" selection-end-line="152" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-287">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#187#207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/wx/platform.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/wx/strvararg.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/wx/defs.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="19" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base58.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-956">
+          <caret line="61" column="24" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bignum.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6178">
+          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3014">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/headers.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/irc.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="273" lean-forward="true" selection-start-line="273" selection-end-line="273" />
+          <folding>
+            <element signature="e#6627#6877#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/irc.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/key.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-374">
+          <caret line="108" column="35" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/license.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1663">
+          <caret line="222" column="46" lean-forward="true" selection-start-line="222" selection-start-column="46" selection-end-line="222" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/market.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/market.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1308">
+          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10725">
+          <caret line="715" column="80" selection-start-line="715" selection-start-column="68" selection-end-line="715" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7110">
+          <caret line="474" column="22" selection-start-line="474" selection-start-column="22" selection-end-line="474" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8835">
+          <caret line="589" column="5" selection-start-line="589" selection-start-column="5" selection-end-line="589" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serialize.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15735">
+          <caret line="1049" column="15" selection-start-line="1049" selection-start-column="6" selection-end-line="1049" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sha.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2280">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
+          <folding>
+            <element signature="e#4262#4826#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uibase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4785">
+          <caret line="319" selection-start-line="319" selection-end-line="319" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
